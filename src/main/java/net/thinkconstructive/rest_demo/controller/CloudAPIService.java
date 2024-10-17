@@ -25,9 +25,9 @@ public class CloudAPIService
     public String updateCloudVendor(@RequestBody CloudVendor cloudvendor) {
         if(this.cloudvendor.getVendorId()!=null && this.cloudvendor.getVendorId().equalsIgnoreCase(cloudvendor.getVendorId())){
             this.cloudvendor = cloudvendor;
-            return "Cloud vendor details updated successfully";
+            return "Cloud vendor details updated successfully!";
         }else{
-            return "Cloud vendorId does not exist";
+            return "Cloud vendorId does not exist!";
         }
     }
 

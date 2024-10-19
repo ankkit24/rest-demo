@@ -1,0 +1,45 @@
+package net.thinkconstructive.rest_demo.service.impl;
+
+import net.thinkconstructive.rest_demo.model.CloudVendor;
+import net.thinkconstructive.rest_demo.repository.CloudVendorRepository;
+import net.thinkconstructive.rest_demo.service.CloudVendorService;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
+@Service
+public class CloudVendorServiceImpl implements CloudVendorService {
+
+    CloudVendorRepository cloudVendorRepository;
+    public CloudVendorServiceImpl(CloudVendorRepository cloudVendorRepository) {
+        this.cloudVendorRepository = cloudVendorRepository;
+    }
+
+    @Override
+    public String createCloudVendor(CloudVendor cloudVendor) {
+        cloudVendorRepository.save(cloudVendor);
+        return "Cloud vendor added to the database";
+    }
+
+    @Override
+    public String updateCloudVendor(CloudVendor cloudVendor) {
+        cloudVendorRepository.save(cloudVendor);
+        return "Cloud vendor updated";
+    }
+
+    @Override
+    public String deleteCloudVendor(String cloudVendorId) {
+        cloudVendorRepository.deleteById(cloudVendorId);
+        return "Cloud vendor deleted";
+    }
+
+    @Override
+    public CloudVendor getCloudVendor(String cloudVendorId) {
+        return cloudVendorRepository.findById(cloudVendorId).get();
+    }
+
+    @Override
+    public List<CloudVendor> getAllCloudVendors() {
+        return cloudVendorRepository.findAll();
+    }
+}
